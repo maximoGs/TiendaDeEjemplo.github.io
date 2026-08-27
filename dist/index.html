@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Paisana Bebidas | Vinos de Autor & Bebidas Selectas</title>
+  <meta name="description" content="Tienda online de Paisana Bebidas. Vinos de autor por varietales (Malbec, Cabernet, Blends, Blancos, Rosados, Espumantes), destilados, aperitivos, bebidas sin alcohol y snacks. Envíos rápidos.">
+  
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="Paisana Bebidas | Vinos de Autor & Bebidas Selectas">
+  <meta property="og:description" content="Catálogo exclusivo de vinos, bebidas destiladas, mixers y snacks con entrega rápida. Hacé tu pedido directo por WhatsApp.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Estilos Principales -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body>
+
+  <!-- Barra Superior de Anuncios -->
+  <div class="announcement-bar">
+    <span>🚚 Envíos express en 45 min</span>
+    <span class="badge-pill">ENVÍO GRATIS desde $35.000</span>
+    <span class="announcement-hide-mobile">❄️ Bebidas listas para tomar</span>
+  </div>
+
+  <!-- Header Principal -->
+  <header class="main-header glass" id="mainHeader">
+    <div class="container">
+      <div class="header-content">
+        
+        <!-- Marca / Logo -->
+        <a href="#inicio" class="brand-logo" id="brandLogo">
+          <div class="brand-logo-badge">
+            <img src="assets/logo.svg" alt="Paisana Bebidas Logo" class="brand-logo-img">
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">PAISANA</span>
+            <span class="brand-subtitle">BEBIDAS SELECTAS</span>
+          </div>
+        </a>
+
+        <!-- Buscador en Desktop -->
+        <div class="header-search">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="desktopSearchInput" class="search-input" placeholder="Buscar vino, lúpulo, gin, fernet, combos, snacks...">
+            <button class="search-clear-btn" id="desktopSearchClear" aria-label="Limpiar búsqueda">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Botones de Acción Header -->
+        <div class="header-actions">
+          <a href="https://wa.me/5491123456789" target="_blank" rel="noopener noreferrer" class="action-btn action-btn-wa" title="Contactar por WhatsApp" aria-label="WhatsApp directo">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <!-- Botón de Carrito (Desktop) -->
+          <button class="action-btn cart-btn-desktop" id="desktopCartBtn" aria-label="Ver Carrito">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="headerCartBadge">0</span>
+            <span class="cart-total-preview" id="headerCartTotal">$0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Buscador en Móvil -->
+  <div class="mobile-search-section">
+    <div class="search-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" id="mobileSearchInput" class="search-input" placeholder="Buscar vino, gin, cerveza, snacks...">
+      <button class="search-clear-btn" id="mobileSearchClear" aria-label="Limpiar búsqueda">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero / Banner de Promociones -->
+  <section class="hero-section" id="inicio">
+    <div class="container">
+      <div class="hero-banner">
+        <div class="hero-decor-orb hero-orb-teal"></div>
+        <div class="hero-decor-orb hero-orb-gold"></div>
+        
+        <div class="hero-content">
+          <div class="hero-tag">
+            <img src="assets/logo.svg" alt="Hop icon" class="hero-tag-icon"> Selección Artesanal & Premium 2026
+          </div>
+          <h1 class="hero-title">
+            Vinos de Autor, <span>Cervezas & Bebidas</span> de Selección
+          </h1>
+          <p class="hero-desc">
+            Vinos boutique por varietales, cervezas con lúpulos seleccionados, destilados premium y combos listos para tus previas y reuniones.
+          </p>
+
+          <div class="hero-features">
+            <div class="hero-feature-item">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Entrega Express 45'</span>
+            </div>
+            <div class="hero-feature-item">
+              <i class="fa-solid fa-temperature-arrow-down"></i>
+              <span>Bebidas Frías</span>
+            </div>
+            <div class="hero-feature-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Garantía & Calidad</span>
+            </div>
+          </div>
+
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="switchCategory('vinos')">
+              <i class="fa-solid fa-wine-glass"></i> Explorar Catálogo
+            </button>
+            <button class="btn-secondary" onclick="filterByPromoCombos()">
+              <i class="fa-solid fa-fire" style="color: var(--gold-primary);"></i> Combos Previa
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-logo-showcase">
+            <div class="hero-badge-glow-ring">
+              <img src="assets/logo.svg" alt="Paisana Bebidas Emblema" class="hero-big-logo">
+            </div>
+            <div class="hero-card-float">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=300&auto=format&fit=crop&q=80" alt="Vino Malbec" class="hero-card-img">
+              <div>
+                <div style="font-size: 0.72rem; color: var(--gold-primary); font-weight: 700; letter-spacing: 0.05em;">DESTACADO DEL MES</div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #fff;">Catena Zapata Malbec</div>
+                <div style="font-size: 0.84rem; color: var(--gold-light); font-weight: 800;">$48.500 <span style="font-size: 0.7rem; color: var(--text-dim); text-decoration: line-through;">$54.000</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pestañas Principales de Categoría (Sticky Navigation) -->
+  <section class="categories-nav-section" id="catalogo">
+    <div class="container">
+      <div class="category-tabs-container" id="categoryTabs">
+        
+        <button class="category-tab-btn active" data-category="vinos" id="tab-vinos">
+          <i class="fa-solid fa-wine-glass"></i>
+          <span>Vinos</span>
+        </button>
+
+        <button class="category-tab-btn" data-category="bebidas" id="tab-bebidas">
+          <i class="fa-solid fa-beer-mug-empty"></i>
+          <span>Cervezas & Bebidas</span>
+        </button>
+
+        <button class="category-tab-btn" data-category="sin-alcohol" id="tab-sin-alcohol">
+          <i class="fa-solid fa-bottle-water"></i>
+          <span>Bebidas sin Alcohol</span>
+        </button>
+
+        <button class="category-tab-btn" data-category="snacks" id="tab-snacks">
+          <i class="fa-solid fa-bowl-food"></i>
+          <span>Snacks y Varios</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-pestañas / Chips de Varietales y Filtros Dinámicos -->
+  <section class="subcategories-bar">
+    <div class="container">
+      <div class="subcategories-container">
+        
+        <!-- Chips que cambian según la categoría activa -->
+        <div class="subcategories-chips" id="subcategoryChips">
+          <!-- Inyectado dinámicamente con JS -->
+        </div>
+
+        <!-- Controles: Contador de artículos y Ordenamiento -->
+        <div class="catalog-controls">
+          <span class="items-counter" id="itemsCount">0 productos</span>
+          <div class="sort-select-wrap">
+            <select id="sortSelect" class="sort-select" aria-label="Ordenar productos">
+              <option value="default">✨ Destacados</option>
+              <option value="price-asc">💵 Menor Precio</option>
+              <option value="price-desc">💎 Mayor Precio</option>
+              <option value="name-asc">🔤 Nombre A-Z</option>
+            </select>
+            <i class="fa-solid fa-chevron-down sort-select-icon"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo de Productos (Grid) -->
+  <main class="catalog-section">
+    <div class="container">
+      
+      <div class="section-header-wrap">
+        <div>
+          <h2 class="section-title" id="currentSectionTitle">
+            <i class="fa-solid fa-wine-glass" style="color: var(--gold-primary);"></i> Vinos de Autor
+          </h2>
+          <p class="section-subtitle" id="currentSectionSubtitle">Explorá nuestras mejores etiquetas seleccionadas por varietal</p>
+        </div>
+      </div>
+
+      <!-- Grid de Tarjetas -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Renderizado dinámicamente -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal de Detalle de Producto -->
+  <div class="modal-backdrop" id="productModal" role="dialog" aria-modal="true">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" id="closeProductModalBtn" aria-label="Cerrar ventana">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="modal-grid-layout" id="modalProductBody">
+        <!-- Contenido inyectado dinámicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer Lateral de Carrito -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras">
+    
+    <div class="cart-header">
+      <h3>
+        <i class="fa-solid fa-bag-shopping" style="color: var(--gold-primary);"></i> Tu Pedido
+      </h3>
+      <button class="cart-close-btn" id="closeCartBtn" aria-label="Cerrar Carrito">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Barra de progreso para envío gratis -->
+    <div class="free-shipping-bar" id="freeShippingBanner">
+      <div id="shippingText">Agregá más productos para <strong>Envío Gratis</strong></div>
+      <div class="shipping-progress-bg">
+        <div class="shipping-progress-fill" id="shippingProgressBar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Lista de Productos en el Carrito -->
+    <div class="cart-items-scroll" id="cartItemsList">
+      <!-- Inyectado dinámicamente -->
+    </div>
+
+    <!-- Resumen y Botón de Checkout -->
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Envío estimado</span>
+        <span id="cartShippingFee">$0</span>
+      </div>
+      <div class="cart-summary-total">
+        <span>Total a Pagar</span>
+        <span id="cartTotalSum">$0</span>
+      </div>
+
+      <button class="btn-whatsapp-order" id="openCheckoutModalBtn">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Finalizar Pedido por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modal de Checkout / Formulario de Envío -->
+  <div class="modal-backdrop" id="checkoutModal" role="dialog" aria-modal="true">
+    <div class="modal-content-card" style="max-width: 520px; padding: 24px;">
+      <button class="modal-close-btn" id="closeCheckoutModalBtn" aria-label="Cerrar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="margin-bottom: 20px;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 4px; color: #fff;">
+          <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> Solicitud de Pedido & Cotización
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted);">
+          Completá tus datos para consultar disponibilidad y confirmar tu pedido directo por WhatsApp.
+        </p>
+      </div>
+
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label class="form-label" for="customerName">Nombre y Apellido *</label>
+          <input type="text" id="customerName" class="form-input" placeholder="Ej: Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Forma de Entrega *</label>
+          <div class="radio-group-cards">
+            <label class="radio-card-label selected" id="radioDeliveryLabel">
+              <input type="radio" name="deliveryMethod" value="envio" checked onchange="toggleDeliveryMethod('envio')">
+              <span>🛵 Envío a Domicilio</span>
+            </label>
+            <label class="radio-card-label" id="radioPickupLabel">
+              <input type="radio" name="deliveryMethod" value="retiro" onchange="toggleDeliveryMethod('retiro')">
+              <span>🏪 Retiro en Local</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="addressFieldGroup">
+          <label class="form-label" for="customerAddress">Dirección de Entrega y Localidad *</label>
+          <input type="text" id="customerAddress" class="form-input" placeholder="Calle, Número, Piso/Depto, Barrio">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="paymentMethod">Medio de Pago Preferido *</label>
+          <select id="paymentMethod" class="form-select">
+            <option value="Transferencia Bancaria / Mercado Pago">💳 Transferencia / Mercado Pago (Alias)</option>
+            <option value="Efectivo contra entrega">💵 Efectivo al recibir (10% OFF)</option>
+            <option value="Tarjeta de Débito / Crédito">💳 Tarjeta en punto de entrega</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="orderNotes">Notas adicionales o aclaraciones</label>
+          <input type="text" id="orderNotes" class="form-input" placeholder="Ej: Timbre no anda, enviar cambio de $10.000, etc.">
+        </div>
+
+        <div class="checkout-legal-notice">
+          <i class="fa-solid fa-shield-halved" style="color: var(--gold-primary);"></i>
+          <span>La presente solicitud no constituye cobro automático en línea. Venta y entrega reservada exclusivamente a mayores de 18 años (Ley 24.788). Tus datos no se almacenan en servidores externos (Ley 25.326).</span>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <button type="submit" class="btn-whatsapp-order">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Consultar Stock y Enviar por WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Verificación de Edad (+18) -->
+  <div class="modal-backdrop" id="ageGateModal" role="dialog" aria-modal="true">
+    <div class="modal-content-card age-gate-card">
+      <div class="age-gate-brand-wrap">
+        <img src="assets/logo.svg" alt="Paisana Bebidas" class="age-gate-logo">
+      </div>
+      <h2>Control de Acceso +18</h2>
+      <p>
+        El acceso a este catálogo digital de vinos, cervezas y bebidas alcohólicas está estrictamente reservado a mayores de 18 años de conformidad con la <strong>Ley Nacional N° 24.788</strong> de Lucha contra el Alcoholismo.
+      </p>
+      <div class="age-gate-legal-note">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span>Beber con moderación. Prohibida su venta y entrega a menores de 18 años.</span>
+      </div>
+      <div class="age-gate-buttons">
+        <button class="btn-primary" style="flex: 1; justify-content: center;" id="confirmAgeBtn">
+          <i class="fa-solid fa-circle-check"></i> Soy mayor de 18 años
+        </button>
+        <button class="btn-secondary" style="flex: 1; justify-content: center;" onclick="window.location.href='https://google.com'">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Salir
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Botón de Arrepentimiento (Res. 424/2020 Secretaría de Comercio) -->
+  <div class="modal-backdrop" id="regretModal" role="dialog" aria-modal="true">
+    <div class="modal-content-card" style="max-width: 520px; padding: 24px;">
+      <button class="modal-close-btn" id="closeRegretModalBtn" aria-label="Cerrar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="margin-bottom: 18px;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 6px; color: #fff; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-rotate-left" style="color: var(--gold-primary);"></i> Botón de Arrepentimiento
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.4;">
+          Conforme al <strong>Art. 34 de la Ley 24.240</strong> y la <strong>Resolución 424/2020</strong> de la Secretaría de Comercio Interior, podés revocar tu compra o solicitud de pedido dentro del plazo de 10 (diez) días corridos desde la fecha de contratación o recepción del producto.
+        </p>
+      </div>
+
+      <form id="regretForm">
+        <div class="form-group">
+          <label class="form-label" for="regretCustomerName">Nombre y Apellido *</label>
+          <input type="text" id="regretCustomerName" class="form-input" placeholder="Nombre completo" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regretContact">Teléfono / WhatsApp o Email *</label>
+          <input type="text" id="regretContact" class="form-input" placeholder="Ej: 11 2345-6789 o usuario@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regretOrderCode">Nº de Pedido o Fecha / Detalle de la Solicitud *</label>
+          <input type="text" id="regretOrderCode" class="form-input" placeholder="Ej: Pedido del 24/08 o código provisto" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regretReason">Motivo de la revocación (opcional)</label>
+          <textarea id="regretReason" class="form-input" rows="2" placeholder="Comentarios adicionales sobre la revocación"></textarea>
+        </div>
+
+        <div class="regret-legal-badge">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>Al enviar este formulario se generará un código de trámite de revocación y se notificará al área de atención al cliente de forma inmediata sin costo alguno.</span>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-paper-plane"></i> Enviar Solicitud de Revocación
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Términos, Condiciones y Privacidad (Ley 25.326 & Ley 24.788) -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true">
+    <div class="modal-content-card" style="max-width: 600px; padding: 26px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close-btn" id="closePrivacyModalBtn" aria-label="Cerrar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="margin-bottom: 16px;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 6px; color: #fff; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--teal-light);"></i> Términos, Condiciones & Privacidad
+        </h3>
+        <p style="font-size: 0.8rem; color: var(--gold-light);">
+          Marco Operativo del Catálogo Digital - Paisana Bebidas
+        </p>
+      </div>
+
+      <div class="legal-text-content">
+        <h4>1. Naturaleza del Sitio Web y Desacoplamiento</h4>
+        <p>
+          Este sitio web es un catálogo digital interactivo e informativo destinado a la exhibición y consulta de disponibilidad de productos de bodegas, cervecerías artesanales y bebidas selectas. El sitio no almacena datos de pago, números de tarjetas de crédito o credenciales bancarias en sus servidores.
+        </p>
+
+        <h4>2. Mayoría de Edad (Ley Nacional 24.788)</h4>
+        <p>
+          Queda expresamente prohibido el consumo y venta de bebidas alcohólicas a menores de 18 años. Todo pedido o consulta de cotización requiere la acreditación fehaciente de la mayoría de edad mediante Documento Nacional de Identidad al momento de la entrega. Beber con moderación.
+        </p>
+
+        <h4>3. Protección de Datos Personales (Ley 25.326)</h4>
+        <p>
+          Los datos ingresados en el formulario de pedido (nombre, dirección y medios de contacto) son procesados localmente en el navegador del usuario exclusivamente para construir el mensaje de consulta enviado vía WhatsApp. No son comercializados, cedidos a terceros ni almacenados en bases de datos externas no autorizadas.
+        </p>
+
+        <h4>4. Derecho de Revocación y Arrepentimiento (Res. 424/2020)</h4>
+        <p>
+          El cliente cuenta con un plazo legal de 10 (diez) días corridos para revocar la aceptación de cualquier contratación o compra a través de nuestro <strong>Botón de Arrepentimiento</strong> disponible en el pie de página.
+        </p>
+
+        <h4>5. Defensa de las y los Consumidores</h4>
+        <p>
+          Para reclamos o consultas ante la autoridad de aplicación, podés recurrir a la 
+          <a href="https://www.argentina.gob.ar/produccion/defensadelconsumidor" target="_blank" rel="noopener noreferrer" style="color: var(--gold-primary); text-decoration: underline;">Dirección Nacional de Defensa del Consumidor (Argentina)</a>.
+        </p>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="closePrivacyModal()">
+          Entendido y Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de Navegación Inferior Móvil (App Style) -->
+  <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+    <button class="bottom-nav-item active" onclick="switchCategory('vinos')" id="bnav-vinos">
+      <i class="fa-solid fa-wine-glass"></i>
+      <span>Vinos</span>
+    </button>
+    <button class="bottom-nav-item" onclick="switchCategory('bebidas')" id="bnav-bebidas">
+      <i class="fa-solid fa-beer-mug-empty"></i>
+      <span>Bebidas</span>
+    </button>
+    <button class="bottom-nav-item" onclick="switchCategory('sin-alcohol')" id="bnav-sin-alcohol">
+      <i class="fa-solid fa-bottle-water"></i>
+      <span>Sin Alcohol</span>
+    </button>
+    <button class="bottom-nav-item" onclick="switchCategory('snacks')" id="bnav-snacks">
+      <i class="fa-solid fa-bowl-food"></i>
+      <span>Snacks</span>
+    </button>
+    <button class="bottom-nav-item" id="mobileCartBtn" aria-label="Ver Carrito">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span class="bottom-nav-badge" id="mobileCartBadge">0</span>
+      <span>Carrito</span>
+    </button>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="assets/logo.svg" alt="Paisana Bebidas" class="footer-logo-img">
+            <div>
+              <h4>PAISANA BEBIDAS</h4>
+              <span class="footer-tagline">Vinos de Autor & Bebidas Selectas</span>
+            </div>
+          </div>
+          <p>
+            Curaduría especializada de vinos boutique, cervezas de autor con lúpulos seleccionados, destilados premium y aperitivos para elevar cada encuentro.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5491123456789" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:ventas@paisanabebidas.com" class="social-btn" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Horarios & Atención</h5>
+          <ul class="footer-links-list">
+            <li><i class="fa-regular fa-clock" style="color: var(--teal-light);"></i> Lunes a Sábados: 10:00 a 00:00 hs</li>
+            <li><i class="fa-regular fa-clock" style="color: var(--teal-light);"></i> Domingos: 17:00 a 23:00 hs</li>
+            <li><i class="fa-solid fa-location-dot" style="color: var(--gold-primary);"></i> Envíos y entregas en toda la ciudad</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Marco Legal & Consumidor</h5>
+          <ul class="footer-links-list">
+            <li>
+              <button class="footer-link-btn regret-btn" id="openRegretBtn">
+                <i class="fa-solid fa-rotate-left"></i> <strong>Botón de Arrepentimiento</strong>
+              </button>
+            </li>
+            <li>
+              <button class="footer-link-btn" id="openPrivacyBtn">
+                <i class="fa-solid fa-shield-halved"></i> Términos & Privacidad (Ley 25.326)
+              </button>
+            </li>
+            <li>
+              <a href="https://www.argentina.gob.ar/produccion/defensadelconsumidor" target="_blank" rel="noopener noreferrer" class="footer-external-link">
+                <i class="fa-solid fa-scale-balanced"></i> Defensa de las y los Consumidores
+              </a>
+            </li>
+            <li>
+              <span class="legal-badge-pill"><i class="fa-solid fa-ban"></i> Prohibida venta a menores de 18 años (Ley 24.788)</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Paisana Bebidas. Catálogo digital interactivo. Beber con moderación. Prohibida la venta de bebidas alcohólicas a menores de 18 años (Ley Nacional 24.788).
+        </div>
+        <div style="color: var(--teal-light); opacity: 0.8; margin-top: 4px;">
+          Plataforma de E-Commerce para Vinotecas y Tiendas de Bebidas
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contenedor de Alertas Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="data/products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,11 +1,10 @@
 {
-  "name": "paisana-bebidas-tienda",
+  "name": "paisana-bebidas",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main": "worker.js",
   "scripts": {
-    "build": "echo 'Static assets ready'",
-    "deploy": "wrangler deploy"
+    "build": "mkdir -p dist && cp -rf index.html styles.css app.js _headers _redirects assets data dist 2>/dev/null || exit 0",
+    "deploy": "exit 0"
   }
 }
