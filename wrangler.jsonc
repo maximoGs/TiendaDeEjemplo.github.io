@@ -1,20 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "tiendadepaisanabebidas-github-io",
+  "main": "index.js",
   "compatibility_date": "2026-08-26",
-  "pages_build_output_dir": ".",
   "assets": {
-    "directory": ".",
-    "exclude": [
-      "node_modules/**",
-      ".git/**",
-      "*.zip",
-      "*.md",
-      "package.json",
-      "package-lock.json",
-      "bun.lockb",
-      "bun.lock"
-    ]
+    "directory": "."
   },
   "observability": {
     "enabled": true
