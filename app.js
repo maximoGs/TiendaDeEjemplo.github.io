@@ -937,10 +937,20 @@ function closePrivacyModal() {
 }
 
 // ==========================================================================
-// UTILIDADES & TOAST
+// UTILIDADES, SEGURIDAD & TOAST
 // ==========================================================================
 function formatMoney(amount) {
-  return `$${amount.toLocaleString("es-AR")}`;
+  return `$${Number(amount || 0).toLocaleString("es-AR")}`;
+}
+
+function escapeHTML(str) {
+  if (typeof str !== "string") return "";
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function showToast(message) {
@@ -949,7 +959,15 @@ function showToast(message) {
 
   const toast = document.createElement("div");
   toast.className = "toast-msg";
-  toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
+  
+  const icon = document.createElement("i");
+  icon.className = "fa-solid fa-circle-check";
+  
+  const textSpan = document.createElement("span");
+  textSpan.textContent = String(message);
+  
+  toast.appendChild(icon);
+  toast.appendChild(textSpan);
   container.appendChild(toast);
 
   setTimeout(() => {
