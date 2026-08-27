@@ -22,16 +22,16 @@ const SUBCATEGORIES_MAP = {
     ]
   },
   bebidas: {
-    title: "Bebidas & Destilados",
-    icon: "fa-solid fa-martini-glass-citrus",
-    subtitle: "Aperitivos, licores, espirituosas premium y cervezas frías",
+    title: "Cervezas & Destilados",
+    icon: "fa-solid fa-beer-mug-empty",
+    subtitle: "Cervezas con lúpulos seleccionados, aperitivos, gin premium y espirituosas",
     subchips: [
-      { id: "all", label: "🍸 Todas las Bebidas" },
+      { id: "all", label: "🍺 Todas las Bebidas" },
+      { id: "cervezas", label: "🌿 Cervezas & Lúpulos" },
       { id: "fernet-aperitivos", label: "🦅 Fernet & Aperitivos" },
       { id: "gin", label: "🌿 Gin Premium" },
       { id: "vodka", label: "🧊 Vodka" },
-      { id: "whisky", label: "🥃 Whisky" },
-      { id: "cervezas", label: "🍺 Cervezas" }
+      { id: "whisky", label: "🥃 Whisky" }
     ]
   },
   "sin-alcohol": {
@@ -208,6 +208,44 @@ function setupEventListeners() {
 
   if (checkoutForm) {
     checkoutForm.addEventListener("submit", handleCheckoutSubmit);
+  }
+
+  // Modal Botón de Arrepentimiento (Res. 424/2020)
+  const openRegretBtn = document.getElementById("openRegretBtn");
+  const closeRegretModalBtn = document.getElementById("closeRegretModalBtn");
+  const regretModal = document.getElementById("regretModal");
+  const regretForm = document.getElementById("regretForm");
+
+  if (openRegretBtn) {
+    openRegretBtn.addEventListener("click", openRegretModal);
+  }
+  if (closeRegretModalBtn) {
+    closeRegretModalBtn.addEventListener("click", closeRegretModal);
+  }
+  if (regretModal) {
+    regretModal.addEventListener("click", (e) => {
+      if (e.target === regretModal) closeRegretModal();
+    });
+  }
+  if (regretForm) {
+    regretForm.addEventListener("submit", handleRegretSubmit);
+  }
+
+  // Modal Términos y Privacidad (Ley 25.326)
+  const openPrivacyBtn = document.getElementById("openPrivacyBtn");
+  const closePrivacyModalBtn = document.getElementById("closePrivacyModalBtn");
+  const privacyModal = document.getElementById("privacyModal");
+
+  if (openPrivacyBtn) {
+    openPrivacyBtn.addEventListener("click", openPrivacyModal);
+  }
+  if (closePrivacyModalBtn) {
+    closePrivacyModalBtn.addEventListener("click", closePrivacyModal);
+  }
+  if (privacyModal) {
+    privacyModal.addEventListener("click", (e) => {
+      if (e.target === privacyModal) closePrivacyModal();
+    });
   }
 
   // Efecto Header Scroll
@@ -788,22 +826,24 @@ function handleCheckoutSubmit(e) {
   const freeThreshold = STORE_CONFIG.freeDeliveryThreshold;
   const shippingCost = AppState.deliveryMethod === "envio" && subtotal < freeThreshold ? STORE_CONFIG.deliveryFee : 0;
   const total = subtotal + shippingCost;
+  const inquiryCode = `COT-${Date.now().toString().slice(-5)}`;
 
-  // Armar Mensaje para WhatsApp
-  let message = `🍷 *NUEVO PEDIDO - PAISANA BEBIDAS*\n`;
+  // Armar Mensaje para WhatsApp con encuadre legal de cotización/disponibilidad
+  let message = `🍷 *SOLICITUD DE DISPONIBILIDAD & COTIZACIÓN*\n`;
+  message += `*Paisana Bebidas* | Ref: #${inquiryCode}\n`;
   message += `━━━━━━━━━━━━━━━━━━━━━\n`;
   message += `👤 *Cliente:* ${name}\n`;
-  message += `🛵 *Entrega:* ${AppState.deliveryMethod === "envio" ? "Envío a Domicilio" : "Retiro en Local"}\n`;
+  message += `🛵 *Modalidad:* ${AppState.deliveryMethod === "envio" ? "Envío a Domicilio" : "Retiro en Local"}\n`;
 
   if (AppState.deliveryMethod === "envio") {
-    message += `📍 *Dirección:* ${address}\n`;
+    message += `📍 *Dirección de Entrega:* ${address}\n`;
   }
-  message += `💳 *Pago:* ${payment}\n`;
+  message += `💳 *Medio de Pago Propuesto:* ${payment}\n`;
   if (notes) {
     message += `📝 *Aclaraciones:* ${notes}\n`;
   }
   message += `━━━━━━━━━━━━━━━━━━━━━\n`;
-  message += `🛒 *DETALLE DEL PEDIDO:*\n\n`;
+  message += `📋 *PRODUCTOS SELECCIONADOS DEL CATÁLOGO:*\n\n`;
 
   AppState.cart.forEach((item, index) => {
     message += `${index + 1}. *${item.name}* (${item.volume})\n`;
@@ -811,13 +851,13 @@ function handleCheckoutSubmit(e) {
   });
 
   message += `━━━━━━━━━━━━━━━━━━━━━\n`;
-  message += `💰 *Subtotal:* ${formatMoney(subtotal)}\n`;
+  message += `💰 *Subtotal Estimado:* ${formatMoney(subtotal)}\n`;
   if (AppState.deliveryMethod === "envio") {
     message += `🚚 *Envío:* ${shippingCost === 0 ? "¡GRATIS!" : formatMoney(shippingCost)}\n`;
   }
-  message += `🔥 *TOTAL A PAGAR:* ${formatMoney(total)}\n`;
+  message += `💎 *TOTAL ESTIMADO:* ${formatMoney(total)}\n`;
   message += `━━━━━━━━━━━━━━━━━━━━━\n`;
-  message += `_Pedido enviado desde la tienda online Paisana Bebidas_`;
+  message += `⚖️ *Aviso Legal:* Solicitud generada desde catálogo web informativo. Operación y entrega sujeta a confirmación de stock y acreditación de mayoría de edad (+18) según Ley Nac. 24.788. Beber con moderación.`;
 
   // Abrir WhatsApp
   const phone = STORE_CONFIG.whatsappNumber;
@@ -829,7 +869,71 @@ function handleCheckoutSubmit(e) {
   // Limpiar y cerrar
   clearCart();
   closeCheckoutModal();
-  showToast("¡Pedido enviado por WhatsApp! 📲");
+  showToast("¡Consulta de stock enviada por WhatsApp! 📲");
+}
+
+// ==========================================================================
+// CONTROLADORES: BOTÓN DE ARREPENTIMIENTO (Res. 424/2020)
+// ==========================================================================
+function openRegretModal() {
+  const modal = document.getElementById("regretModal");
+  if (modal) modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeRegretModal() {
+  const modal = document.getElementById("regretModal");
+  if (modal) modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function handleRegretSubmit(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("regretCustomerName").value.trim();
+  const contact = document.getElementById("regretContact").value.trim();
+  const orderCode = document.getElementById("regretOrderCode").value.trim();
+  const reason = document.getElementById("regretReason").value.trim();
+  const revocationCode = `REV-${Date.now().toString().slice(-6)}`;
+
+  let message = `🔄 *NOTIFICACIÓN DE REVOCACIÓN / ARREPENTIMIENTO*\n`;
+  message += `*Conforme Art. 34 Ley 24.240 y Res. 424/2020*\n`;
+  message += `━━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `🎫 *Código de Trámite:* ${revocationCode}\n`;
+  message += `👤 *Titular:* ${name}\n`;
+  message += `📞 *Contacto:* ${contact}\n`;
+  message += `📦 *Referencia/Pedido:* ${orderCode}\n`;
+  if (reason) {
+    message += `💬 *Motivo:* ${reason}\n`;
+  }
+  message += `━━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `Solicito la revocación formal de la solicitud/compra conforme al plazo legal establecido por la normativa vigente.`;
+
+  const phone = STORE_CONFIG.whatsappNumber;
+  const encoded = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${phone}?text=${encoded}`;
+
+  window.open(whatsappUrl, "_blank");
+
+  closeRegretModal();
+  const form = document.getElementById("regretForm");
+  if (form) form.reset();
+  showToast(`Revocación generada: Código ${revocationCode}`);
+}
+
+// ==========================================================================
+// CONTROLADORES: TÉRMINOS Y PRIVACIDAD (Ley 25.326)
+// ==========================================================================
+function openPrivacyModal() {
+  const modal = document.getElementById("privacyModal");
+  if (modal) modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closePrivacyModal() {
+  const modal = document.getElementById("privacyModal");
+  if (modal) modal.classList.remove("active");
+  document.body.style.overflow = "";
 }
 
 // ==========================================================================

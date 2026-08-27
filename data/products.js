@@ -390,10 +390,58 @@ const PRODUCTS_DATA = [
     pairing: "Con hielo o combinado con gaseosa cola."
   },
 
-  // Subcategory: Cervezas
+  // Subcategory: Cervezas & Lúpulos Artesanales
   {
     id: "beb-11",
-    name: "Pack x6 Corona Extra 330ml",
+    name: "Patagonia 24.7 Session IPA con Sauco & Lúpulo",
+    category: "bebidas",
+    subcategory: "cervezas",
+    price: 3600,
+    oldPrice: 4200,
+    volume: "730 ml",
+    alcohol: "4.5%",
+    origin: "Bariloche, Patagonia",
+    rating: 4.9,
+    badge: "Artesanal 🌿",
+    image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=800&auto=format&fit=crop&q=80",
+    description: "Cerveza Session IPA de cuerpo liviano y gran tomabilidad. Destaca por su aroma a lúpulo patagónico, cítricos frescos y un toque frutal de sauco silvestre.",
+    pairing: "Hamburguesas gourmet, tablas de quesos y comidas especiadas."
+  },
+  {
+    id: "beb-12",
+    name: "Pack x6 Patagonia IPA & Bohemian 473ml",
+    category: "bebidas",
+    subcategory: "cervezas",
+    price: 13800,
+    oldPrice: 15500,
+    volume: "6 x 473 ml",
+    alcohol: "5.2%",
+    origin: "Patagonia Argentina",
+    rating: 4.8,
+    badge: "Pack Lúpulo",
+    image: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=800&auto=format&fit=crop&q=80",
+    description: "Variedad de cervezas con lúpulos Cascade y Victoria. Amargor agradable y balance con notas de malta tostada.",
+    pairing: "Picadas de campo, pizzas al horno de leña."
+  },
+  {
+    id: "beb-13",
+    name: "Andes Origen Roja Cerveza de Guarda 473ml (Pack x6)",
+    category: "bebidas",
+    subcategory: "cervezas",
+    price: 9200,
+    oldPrice: null,
+    volume: "6 x 473 ml",
+    alcohol: "5.1%",
+    origin: "Mendoza, Argentina",
+    rating: 4.7,
+    badge: "Mendoza Craft",
+    image: "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?w=800&auto=format&fit=crop&q=80",
+    description: "Cerveza vienesa rojiza elaborada con agua de deshielo y maltas tostadas a fuego lento. Notas a caramelo suave.",
+    pairing: "Carnes al disco, pastas rellenas."
+  },
+  {
+    id: "beb-14",
+    name: "Pack x6 Corona Extra 330ml con Lima",
     category: "bebidas",
     subcategory: "cervezas",
     price: 9600,
@@ -402,26 +450,10 @@ const PRODUCTS_DATA = [
     alcohol: "4.5%",
     origin: "México",
     rating: 4.8,
-    badge: "Pack Ahorro",
-    image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=800&auto=format&fit=crop&q=80",
-    description: "Cerveza rubia tipo pilsner, ligera y refrescante. Infaltable con su gajo de lima en el cuello.",
-    pairing: "Tacos, nachos, mariscos y previas de verano."
-  },
-  {
-    id: "beb-12",
-    name: "Pack x6 Stella Artois Noire 473ml Lata",
-    category: "bebidas",
-    subcategory: "cervezas",
-    price: 8400,
-    oldPrice: null,
-    volume: "6 x 473 ml",
-    alcohol: "5.4%",
-    origin: "Argentina",
-    rating: 4.6,
-    badge: null,
-    image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=800&auto=format&fit=crop&q=80",
-    description: "Cerveza negra equilibrada con maltas tostadas, notas de café suave y espuma cremosa.",
-    pairing: "Pizzas a la piedra, quesos intensos."
+    badge: "Top Previas",
+    image: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=800&auto=format&fit=crop&q=80",
+    description: "Cerveza rubia tipo pilsner, ultra refrescante. Clásico mundial lista para disfrutar bien helada.",
+    pairing: "Tacos, nachos con guacamole y mariscos."
   },
 
   // ==================== BEBIDAS SIN ALCOHOL ====================
@@ -715,16 +747,24 @@ const PRODUCTS_DATA = [
   }
 ];
 
-// Configuración de la tienda
+// ==========================================================================
+// CONFIGURACIÓN GLOBAL DEL NEGOCIO / PANEL DE ADMINISTRACIÓN RÁPIDA
+// Modifique estos valores para adaptar la tienda a cualquier cliente o vinoteca
+// ==========================================================================
 const STORE_CONFIG = {
   name: "Paisana Bebidas",
   tagline: "Vinos de Autor & Bebidas Selectas",
-  whatsappNumber: "5491123456789", // Número para recibir los pedidos
+  whatsappNumber: "5491123456789", // Número internacional sin '+' ni espacios
   phoneFormatted: "+54 9 11 2345-6789",
+  email: "ventas@paisanabebidas.com",
   address: "Av. Principal 1240, Buenos Aires",
   instagram: "@paisana.bebidas",
+  instagramUrl: "https://instagram.com",
   schedule: "Lun a Sáb: 10:00 a 00:00 hs | Dom: 17:00 a 23:00 hs",
-  deliveryFee: 1500,
-  freeDeliveryThreshold: 35000,
-  currency: "$"
+  deliveryFee: 1500, // Costo de envío estándar
+  freeDeliveryThreshold: 35000, // Monto mínimo para envío gratis
+  currency: "$",
+  minAge: 18, // Edad mínima legal requerida
+  paymentAlias: "PAISANA.BEBIDAS.MP" // Alias para transferencias / Mercado Pago
 };
+

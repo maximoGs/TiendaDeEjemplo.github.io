@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Filtros de sombra suave -->
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+    <!-- Rutas para texto curvo -->
+    <!-- Ruta superior para PAISANA -->
+    <path id="textPathTop" d="M 95,250 A 155,155 0 0,1 405,250" fill="none"/>
+    <!-- Ruta inferior para BEBIDAS -->
+    <path id="textPathBottom" d="M 405,250 A 155,155 0 0,1 95,250" fill="none"/>
+    
+    <!-- Gradiente sutil para lúpulo -->
+    <linearGradient id="hopLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#62c4c7"/>
+      <stop offset="100%" stop-color="#328a8d"/>
+    </linearGradient>
+    <linearGradient id="hopLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ab0b3"/>
+      <stop offset="100%" stop-color="#236f72"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Borde Exterior Mostaza / Oro Cálido -->
+  <circle cx="250" cy="250" r="236" fill="#e5aa38" stroke="#1d1316" stroke-width="6" filter="url(#badgeShadow)"/>
+  
+  <!-- Anillo Intermedio Turquesa / Teal Vintage -->
+  <circle cx="250" cy="250" r="195" fill="#3ca1a4" stroke="#221217" stroke-width="5"/>
+  
+  <!-- Círculo Central Borgoña / Maroon Profundo -->
+  <circle cx="250" cy="250" r="125" fill="#582029" stroke="#e5aa38" stroke-width="4"/>
+
+  <!-- Puntos decorativos laterales -->
+  <circle cx="95" cy="250" r="6" fill="#2d1319"/>
+  <circle cx="405" cy="250" r="6" fill="#2d1319"/>
+
+  <!-- Texto Superior: PAISANA -->
+  <text fill="#2d1319" font-family="'Cinzel', 'Georgia', serif" font-weight="900" font-size="44" letter-spacing="9">
+    <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">
+      PAISANA
+    </textPath>
+  </text>
+
+  <!-- Texto Inferior: BEBIDAS -->
+  <text fill="#e5aa38" font-family="'Cinzel', 'Georgia', serif" font-weight="900" font-size="42" letter-spacing="10">
+    <textPath href="#textPathBottom" startOffset="50%" text-anchor="middle">
+      BEBIDAS
+    </textPath>
+  </text>
+
+  <!-- ILUSTRACIÓN CENTRAL: FLOR DE LÚPULO (HOP CONE) -->
+  <g id="hopCone" transform="translate(0, 5)">
+    <!-- Tallo superior -->
+    <path d="M 250,150 Q 256,138 268,142 Q 262,154 250,158 Z" fill="#e5aa38" stroke="#2d1319" stroke-width="2.5"/>
+    
+    <!-- Pétalos traseros / superiores -->
+    <path d="M 250,155 C 235,170 230,195 250,210 C 270,195 265,170 250,155 Z" fill="url(#hopLeafGrad2)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 250,158 L 250,205" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Capa 1: Pétalos laterales superiores -->
+    <!-- Izquierda superior -->
+    <path d="M 240,168 C 210,172 195,198 215,220 C 235,222 245,200 240,168 Z" fill="url(#hopLeafGrad1)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 235,175 Q 220,195 218,215" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Derecha superior -->
+    <path d="M 260,168 C 290,172 305,198 285,220 C 265,222 255,200 260,168 Z" fill="url(#hopLeafGrad1)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 265,175 Q 280,195 282,215" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Capa 2: Pétalos intermedios laterales exteriores -->
+    <!-- Extremo izquierdo -->
+    <path d="M 220,198 C 185,210 178,245 205,268 C 230,265 235,235 220,198 Z" fill="url(#hopLeafGrad2)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 215,205 Q 195,235 208,260" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Extremo derecho -->
+    <path d="M 280,198 C 315,210 322,245 295,268 C 270,265 265,235 280,198 Z" fill="url(#hopLeafGrad2)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 285,205 Q 305,235 292,260" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Capa 3: Pétalos centrales intermedios -->
+    <!-- Centro-Izquierda -->
+    <path d="M 245,195 C 220,215 210,250 238,272 C 255,255 258,225 245,195 Z" fill="url(#hopLeafGrad1)" stroke="#e5aa38" stroke-width="3.2"/>
+    <path d="M 243,202 Q 228,235 238,265" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Centro-Derecha -->
+    <path d="M 255,195 C 280,215 290,250 262,272 C 245,255 242,225 255,195 Z" fill="url(#hopLeafGrad1)" stroke="#e5aa38" stroke-width="3.2"/>
+    <path d="M 257,202 Q 272,235 262,265" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Capa 4: Pétalos inferiores laterales -->
+    <!-- Inferior Izquierda -->
+    <path d="M 225,255 C 205,280 220,310 242,318 C 255,305 252,280 225,255 Z" fill="url(#hopLeafGrad2)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 230,265 Q 222,292 240,312" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Inferior Derecha -->
+    <path d="M 275,255 C 295,280 280,310 258,318 C 245,305 248,280 275,255 Z" fill="url(#hopLeafGrad2)" stroke="#e5aa38" stroke-width="3"/>
+    <path d="M 270,265 Q 278,292 260,312" stroke="#e5aa38" stroke-width="2"/>
+
+    <!-- Capa 5: Pétalo central inferior / punta final -->
+    <path d="M 250,245 C 230,270 232,320 250,338 C 268,320 270,270 250,245 Z" fill="url(#hopLeafGrad1)" stroke="#e5aa38" stroke-width="3.5"/>
+    <path d="M 250,252 L 250,330" stroke="#e5aa38" stroke-width="2.5"/>
+  </g>
+</svg>
