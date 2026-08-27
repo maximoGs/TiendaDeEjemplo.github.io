@@ -1,0 +1,11 @@
+{
+  "name": "paisana-bebidas-tienda",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "worker.js",
+  "scripts": {
+    "build": "echo 'Static assets ready'",
+    "deploy": "wrangler deploy"
+  }
+}
