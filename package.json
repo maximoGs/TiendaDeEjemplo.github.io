@@ -4,10 +4,7 @@
   "private": true,
   "description": "Paisana Bebidas - Catálogo Digital y Tienda Online",
   "scripts": {
-    "build": "echo 'Static assets ready for Cloudflare'",
-    "deploy": "wrangler deploy"
-  },
-  "devDependencies": {
-    "wrangler": "^4.127.0"
+    "build": "echo 'Static assets ready'",
+    "deploy": "echo 'Deploying static assets'"
   }
 }

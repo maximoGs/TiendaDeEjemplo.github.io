@@ -4,7 +4,17 @@
   "compatibility_date": "2026-08-26",
   "pages_build_output_dir": ".",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "exclude": [
+      "node_modules/**",
+      ".git/**",
+      "*.zip",
+      "*.md",
+      "package.json",
+      "package-lock.json",
+      "bun.lockb",
+      "bun.lock"
+    ]
   },
   "observability": {
     "enabled": true
